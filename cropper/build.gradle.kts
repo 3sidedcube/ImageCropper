@@ -49,3 +49,15 @@ dependencies {
 	testImplementation(libs.mock)
 	testImplementation(libs.robolectric)
 }
+afterEvaluate {
+	publishing {
+		publications {
+			create("release", MavenPublication::class.java) {
+				from(components["release"])
+				groupId = "com.canhub.cropper"
+				artifactId = "image-cropper"
+				version = "1.0.0"
+			}
+		}
+	}
+}
